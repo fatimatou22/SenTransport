@@ -1,25 +1,155 @@
+/* ── Général ─────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f5f5f5;
+  color: #2c3e50;
+}
+
 .App {
-  font-family: Arial, sans-serif;
   min-height: 100vh;
-  background-color: #f5f6fa;
   display: flex;
   flex-direction: column;
 }
+
 .contenu {
-  padding: 20px;
+  flex: 1;
   max-width: 800px;
   margin: 0 auto;
+  padding: 24px 16px;
   width: 100%;
-  box-sizing: border-box;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.header {
+  background-color: #27ae60;
+  color: white;
+  text-align: center;
+  padding: 24px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.header p {
+  font-size: 1rem;
+  margin-top: 4px;
+  opacity: 0.9;
+}
+
+/* ── Recherche ───────────────────────────────────────────── */
+.recherche {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.recherche:focus {
+  outline: none;
+  border-color: #27ae60;
+}
+
+/* ── Résultat recherche ──────────────────────────────────── */
+.resultat-recherche {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 12px;
+}
+
+/* ── LigneBus ────────────────────────────────────────────── */
+.ligne-bus {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.ligne-bus:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.ligne-bus.selectionnee {
+  border-color: #27ae60;
+  box-shadow: 0 0 0 2px #27ae6033;
+}
+
+.ligne-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #27ae60;
+  color: white;
+}
+
+.ligne-numero {
+  font-size: 1.2rem;
+  font-weight: bold;
+  min-width: 40px;
+}
+
+.ligne-trajet {
   flex: 1;
+  font-size: 0.95rem;
 }
-@media (max-width: 600px) {
-  .contenu { padding: 12px; }
-}@media (max-width: 600px) {
-  .contenu { padding: 12px; }
-  .ligne-bus { padding: 10px 12px; }
-  .ligne-numero { width: 40px; height: 40px; font-size: 1rem; margin-right: 12px; }
+
+.ligne-arrets {
+  font-size: 0.85rem;
+  opacity: 0.85;
 }
+
+/* ── DetailLigne ─────────────────────────────────────────── */
+.detail-ligne {
+  background-color: #eafaf1;
+  border: 1px solid #27ae60;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.detail-ligne h3 {
+  color: #27ae60;
+  margin-bottom: 10px;
+}
+
+.detail-ligne ul {
+  list-style: none;
+  padding: 0;
+}
+
+.detail-ligne ul li {
+  padding: 4px 0;
+  border-bottom: 1px solid #d5f5e3;
+  font-size: 0.9rem;
+}
+
+.detail-ligne ul li:last-child {
+  border-bottom: none;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+/* ── Message chargement ──────────────────────────────────── */
 .message-chargement {
   text-align: center;
   color: #7f8c8d;
@@ -27,6 +157,7 @@
   margin-top: 40px;
 }
 
+/* ── Message erreur ──────────────────────────────────────── */
 .message-erreur {
   text-align: center;
   background-color: #fff5f5;
@@ -37,8 +168,45 @@
   color: #2c3e50;
 }
 
+.message-erreur p {
+  margin-bottom: 8px;
+}
+
 .erreur-detail {
   color: #e74c3c;
   font-family: monospace;
   font-size: 0.9rem;
+}
+
+/* ── Barre actions ───────────────────────────────────────── */
+.barre-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.barre-actions .recherche {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* ── Bouton Recharger ────────────────────────────────────── */
+.btn-recharger {
+  padding: 8px 18px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.btn-recharger:hover {
+  background-color: #1a252f;
+}
+
+.message-erreur .btn-recharger {
+  margin-top: 16px;
 }

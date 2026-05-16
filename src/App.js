@@ -9,15 +9,16 @@ import Footer from './Footer';
 
 function App() {
 
-  // ── 1. Les états ──────────────────────────────────────────
   const [lignes, setLignes] = useState([]);
   const [chargement, setChargement] = useState(true);
   const [erreur, setErreur] = useState(null);
   const [recherche, setRecherche] = useState("");
   const [ligneSelectionnee, setLigneSelectionnee] = useState(null);
 
-  // ── 2. Charger les données au démarrage ───────────────────
-  useEffect(() => {
+  function chargerLignes() {
+    setChargement(true);
+    setErreur(null);
+
     fetch("http://localhost:5000/lignes")
       .then(response => {
         if (!response.ok) {
@@ -33,16 +34,18 @@ function App() {
         setErreur(error.message);
         setChargement(false);
       });
-  }, []); // ← le [] est OBLIGATOIRE (exécuté une seule fois)
+  }
 
-  // ── 3. Filtre de recherche (inchangé depuis Lab 3) ────────
+  useEffect(() => {
+    chargerLignes();
+  }, []);
+
   const lignesFiltrees = lignes.filter(l =>
     l.depart.toLowerCase().includes(recherche.toLowerCase()) ||
     l.arrivee.toLowerCase().includes(recherche.toLowerCase()) ||
     l.numero.includes(recherche)
   );
 
-  // ── 4. Gestion du clic sur une ligne (inchangé) ───────────
   function handleClickLigne(ligne) {
     if (ligneSelectionnee && ligneSelectionnee.id === ligne.id) {
       setLigneSelectionnee(null);
@@ -51,8 +54,6 @@ function App() {
     }
   }
 
-  // ── 5. ÉCRAN DE CHARGEMENT ────────────────────────────────
-  //       (placé AVANT le return principal)
   if (chargement) {
     return (
       <div className="App">
@@ -67,8 +68,6 @@ function App() {
     );
   }
 
-  // ── 6. ÉCRAN D'ERREUR ─────────────────────────────────────
-  //       (placé AVANT le return principal)
   if (erreur) {
     return (
       <div className="App">
@@ -78,6 +77,9 @@ function App() {
             <p>Impossible de charger les lignes.</p>
             <p className="erreur-detail">{erreur}</p>
             <p>Vérifiez que le serveur Flask est lancé (python api/app.py).</p>
+            <button className="btn-recharger" onClick={chargerLignes}>
+              Recharger
+            </button>
           </div>
         </main>
         <Footer />
@@ -85,17 +87,20 @@ function App() {
     );
   }
 
-  // ── 7. ÉCRAN NORMAL ───────────────────────────────────────
-  //       (identique au Lab 3, les données viennent maintenant de Flask)
   return (
     <div className="App">
       <Header />
       <main className="contenu">
 
-        <Recherche
-          valeur={recherche}
-          onChange={setRecherche}
-        />
+        <div className="barre-actions">
+          <Recherche
+            valeur={recherche}
+            onChange={setRecherche}
+          />
+          <button className="btn-recharger" onClick={chargerLignes}>
+            Recharger
+          </button>
+        </div>
 
         <p className="resultat-recherche">
           {lignesFiltrees.length} ligne

@@ -22,5 +22,13 @@
   { "id": 6, "numero": "12",
     "depart": "Yoff", "arrivee": "Sandaga", "arrets": 11,
     "listeArrets": ["Yoff Village","Aeroport LSS",
-      "Parcelles U17","Grand Yoff","HLM","Sandaga"] }
+      "Parcelles U17","Grand Yoff","HLM","Sandaga"] },
+  { "id": 7, "numero": "27",
+    "depart": "Rufisque", "arrivee": "Plateau", "arrets": 15,
+    "listeArrets": ["Rufisque Centre","Thiaroye","Yeumbeul",
+      "Pikine","Colobane","Kermel","Plateau"] },
+  { "id": 8, "numero": "36",
+    "depart": "Keur Massar", "arrivee": "Medina", "arrets": 13,
+    "listeArrets": ["Keur Massar","Malika","Thiaroye Gare",
+      "Hann","Fass","Medina"] }
 ]
