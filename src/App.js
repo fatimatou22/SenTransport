@@ -5,6 +5,7 @@ import Header from './Header';
 import Recherche from './Recherche';
 import LigneBus from './LigneBus';
 import DetailLigne from './DetailLigne';
+import Carte from './Carte';
 import Footer from './Footer';
 
 function App() {
@@ -122,6 +123,7 @@ function App() {
         ))}
 
         {ligneSelectionnee && <DetailLigne ligne={ligneSelectionnee} />}
+        <Carte />
 
       </main>
       <Footer />

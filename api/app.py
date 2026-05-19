@@ -8,10 +8,17 @@ CORS(app)
 with open("lignes_ddd.json", "r") as f:
     lignes = json.load(f)
 
+with open("arrets.json", "r") as f:
+    arrets = json.load(f)
+
+@app.route("/arrets")
+def get_arrets():
+    return jsonify(arrets)
+
 @app.route("/")
 def accueil():
     return jsonify({
-        "message": "Bienvenue sur l'API SenTransport !",
+        "message": "Bienvenue sur l'API SenTransport",
         "endpoints": ["/lignes", "/lignes/<id>"]
     })
 
@@ -26,15 +33,8 @@ def get_ligne(ligne_id):
         None
     )
     if ligne is None:
-        return jsonify({"erreur": "Ligne non trouvee"}), 404
+        return jsonify({"erreur": "Ligne non trouvee"})
     return jsonify(ligne)
-
-@app.route("/arrets")
-def get_arrets():
-    tous = []
-    for l in lignes:
-        tous.extend(l["listeArrets"])
-    return jsonify(list(set(tous)))
 
 @app.route("/stats")
 def get_stats():
