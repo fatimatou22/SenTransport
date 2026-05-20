@@ -26,6 +26,56 @@
 
 @media (max-width: 600px) {
   .carte {
-    height: 900px;
+    height: 300px;
   }
+}
+
+.marqueur-proche img {
+  filter: hue-rotate(120deg) saturate(5) brightness(1.2);
+}
+
+.leaflet-marker-icon.marqueur-proche {
+  filter: hue-rotate(120deg) saturate(5) brightness(1.2);
+}
+.btn-centrer {
+  padding: 8px 16px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.btn-centrer:hover {
+  background-color: #1e8449;
+}
+.trois-proches {
+  background-color: #f0f9f4;
+  border: 1px solid #27ae60;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
+
+.liste-proches {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+
+.liste-proches li {
+  padding: 4px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #d5f5e3;
+}
+
+.liste-proches li:last-child {
+  border-bottom: none;
+}
+
+.liste-proches li.premier {
+  color: #e67e22;
+  font-weight: bold;
 }
