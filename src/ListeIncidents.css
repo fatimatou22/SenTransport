@@ -1,0 +1,47 @@
+.liste-incidents {
+  margin-top: 16px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.liste-incidents-titre {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  margin: 0 0 12px 0;
+}
+
+.liste-incidents-vide {
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.incident-card {
+  border: 1px solid #dcdde1;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+}
+
+.incident-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.incident-ligne {
+  font-weight: 700;
+  color: #0a6e31;
+}
+
+.incident-lieu {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+}
+
+.incident-description {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 0.95rem;
+}

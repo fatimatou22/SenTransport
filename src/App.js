@@ -8,7 +8,9 @@ import DetailLigne from './DetailLigne';
 import Carte from './Carte';
 import Footer from './Footer';
 import Meteo from './Meteo';
+import Previsions from './Previsions';
 import SignalerIncident from './SignalerIncident';
+import ListeIncidents from './ListeIncidents';
 
 function App() {
 
@@ -95,7 +97,8 @@ function App() {
       <Header />
       <main className="contenu">
 
-        <Meteo /> {/* NOUVEAU */}
+        <Meteo />
+        <Previsions /> {/* EXERCICE 2 */}
 
         <div className="barre-actions">
           <Recherche
@@ -128,7 +131,8 @@ function App() {
 
         {ligneSelectionnee && <DetailLigne ligne={ligneSelectionnee} />}
         <Carte />
-        <SignalerIncident /> {/* NOUVEAU */}
+        <SignalerIncident /> {/* EXERCICE 3 */}
+        <ListeIncidents />   {/* EXERCICE 1 */}
 
       </main>
       <Footer />
